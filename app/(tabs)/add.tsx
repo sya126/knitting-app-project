@@ -10,29 +10,10 @@ import {
   View,
 } from 'react-native';
 // İkon setlerimizi import ediyoruz
+import { auth, db } from '@/src/firebaseConfig';
 import { Feather } from '@expo/vector-icons';
 import * as Font from 'expo-font';
-// Firebase kütüphanelerini import ediyoruz
-import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
-import { addDoc, collection, getFirestore, serverTimestamp } from 'firebase/firestore';
-
-// --- Firebase Yapılandırması ---
-// Bu bilgileri bir önceki adımdan zaten almıştın.
-const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
-};
-
-// Firebase'i başlat
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app); // Firestore'u başlat
-
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 
 // --- Font Yükleme ---
 const fetchFonts = () => {

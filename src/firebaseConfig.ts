@@ -3,8 +3,9 @@ import { getApp, getApps, initializeApp } from 'firebase/app';
 import {
   getAuth,
   getReactNativePersistence,
-  initializeAuth
+  initializeAuth,
 } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: "your api key",
@@ -16,18 +17,15 @@ const firebaseConfig = {
   measurementId: "measurement id"
 };
 
-let app;
-let auth;
+const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
 
-if (!getApps().length) {
-  app = initializeApp(firebaseConfig);
-  auth = initializeAuth(app, {
-    persistence: getReactNativePersistence(AsyncStorage)
-  });
-} else {
-  app = getApp();
-  auth = getAuth(app); // tekrar initialize etme!
-}
+const auth = getApps().length === 0
+  ? initializeAuth(app, {
+      persistence: getReactNativePersistence(AsyncStorage),
+    })
+  : getAuth(app);
 
-export { app, auth };
+  const db = getFirestore(app);
+  export { app, auth, db };
+
 
