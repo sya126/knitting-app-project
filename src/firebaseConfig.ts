@@ -7,13 +7,13 @@ import {
 } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBbP1dlMHyIL_VLpwU-TnzVSrvYkKNVSxM",
-  authDomain: "orgu-uygulamam.firebaseapp.com",
-  projectId: "orgu-uygulamam",
-  storageBucket: "orgu-uygulamam.firebasestorage.app",
-  messagingSenderId: "519409974283",
-  appId: "1:519409974283:web:d4feb23c731805be6ddb0e",
-  measurementId: "G-1J4EMBWX5T"
+  apiKey: "your api key",
+  authDomain: "your domain",
+  projectId: "your id",
+  storageBucket: "your storage bucket",
+  messagingSenderId: "sender id",
+  appId: "app id",
+  measurementId: "measurement id"
 };
 
 let app;
